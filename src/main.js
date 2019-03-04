@@ -11,6 +11,12 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
 
+axios.interceptors.request.use((config) => {
+  //请求之前重新拼装url
+  config.url = "http://localhostes.com:8081" + config.url;
+  return config;
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

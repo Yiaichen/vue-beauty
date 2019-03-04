@@ -30,7 +30,7 @@
     data() {
       return {
         results: [],
-        getUrl: '/api/learn'
+        getUrl: '/api/main/findLover'
       }
     },
     created: function () {

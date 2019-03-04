@@ -176,7 +176,7 @@
     data() {
       return {
         results: [],
-        getUrl: '/api/learn'
+        getUrl: '/main/findLover'
       }
     },
     created: function () {
