@@ -5,15 +5,18 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import $ from 'jquery'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
 
+var dev = "http://localhost:8081"
+var prod = "http://47.107.121.88:8081"
+
 axios.interceptors.request.use((config) => {
   //请求之前重新拼装url
-  config.url = "http://localhostes.com:8081" + config.url;
+  config.url = prod + config.url;
   return config;
 });
 

@@ -11,35 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="about.html"><i class="glyphicon glyphicon-heart nav-icon-size"></i> Head portrait</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
+              <a class="nav-link" href="services.html"><i class="glyphicon glyphicon-piggy-bank nav-icon-size"></i> Emoticon</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="contact.html"><i class="glyphicon glyphicon glyphicon-cd nav-icon-size"></i> Wallpaper</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Portfolio
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-                <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-                <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-                <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-                <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Blog
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-                <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-                <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-              </div>
+            <li class="nav-item">
+              <a class="nav-link" href="blog-post.html"><i class="glyphicon glyphicon glyphicon-cd nav-icon-size"></i> Blog</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,24 +48,24 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('./static/images/banner/06.jpg')">
+          <div class="carousel-item active" style="background-image: url('./static/images/banner/04Y.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>LINK</h3>
-              <p>The Legend of Zelda: Breath of the Wild.</p>
+              <h3>YoRHa No. 2 Type B</h3>
+              <p>This is a NieR:Automata.</p>
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('./static/images/banner/07.jpg')">
+          <div class="carousel-item" style="background-image: url('./static/images/banner/07Y.jpg')">
             <div class="carousel-caption d-none d-md-block">
               <h3>Aestheticism Boy</h3>
               <p>This is a Aestheticism Boy.</p>
             </div>
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('./static/images/banner/04.jpg')">
+          <div class="carousel-item" style="background-image: url('./static/images/banner/06Y.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>YoRHa No. 2 Type B</h3>
-              <p>This is a NieR:Automata.</p>
+              <h3>LINK</h3>
+              <p>The Legend of Zelda: Breath of the Wild.</p>
             </div>
           </div>
         </div>
@@ -161,7 +142,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Beauty Vayi 2019</p>
       </div>
       <!-- /.container -->
     </footer>
@@ -210,5 +191,9 @@
 
 .portfolio-item {
   margin-bottom: 30px;
+}
+
+.nav-icon-size {
+  font-size: 0.7rem;
 }
 </style>
