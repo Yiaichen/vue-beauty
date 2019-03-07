@@ -1,5 +1,5 @@
 <template>
-  <div id="">
+  <div id="detail">
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -69,11 +69,11 @@
         <li class="breadcrumb-item">
           <a href="index.html">Home</a>
         </li>
-        <li class="breadcrumb-item active">Services</li>
+        <li class="breadcrumb-item active">Detail</li>
       </ol>
 
       <!-- Image Header -->
-      <img class="img-fluid rounded mb-4" src="http://placehold.it/1200x300" alt="">
+      <img class="img-fluid rounded mb-4" src="http://placehold.it/300x300" alt="">
 
       <!-- Marketing Icons Section -->
       <div class="row">
@@ -129,7 +129,7 @@
 
 <script>
   export default {
-    name: "index",
+    name: "detail",
     data() {
       return {
         results: [],
@@ -137,7 +137,7 @@
       }
     },
     created: function () {
-      this.getImg()              //定义方法
+      // this.getImg()              //定义方法
     },
     methods: {
       getImg: function () {
@@ -155,9 +155,5 @@
 </script>
 
 <style scoped>
-  #app {
-    text-align: center;
-    margin: 0 auto;
-    width: 1000px;
-  }
+
 </style>

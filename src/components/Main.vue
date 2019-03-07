@@ -30,7 +30,7 @@
                 <a class="dropdown-item" href="full-width.html">Full Width Page</a>
                 <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
                 <a class="dropdown-item" href="faq.html">FAQ</a>
-                <a class="dropdown-item" href="404.html">404</a>
+                <router-link to="/emoticon/detail">404</router-link>
                 <a class="dropdown-item" href="pricing.html">Pricing Table</a>
               </div>
             </li>
@@ -91,10 +91,10 @@
       <div class="row">
         <div class="col-lg-3 col-sm-8 portfolio-item" v-for="result in results" :key="result.id">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" v-bind:src="result.url" alt=""></a>
+            <router-link to="/emoticon/detail"><img class="card-img-top" v-bind:src="result.url" alt=""></router-link>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">{{result.title}}</a>
+                <router-link to="/emoticon/detail">{{result.title}}</router-link>
               </h4>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
