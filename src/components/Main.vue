@@ -17,21 +17,17 @@
               <a class="nav-link" href="services.html"><i class="glyphicon glyphicon-piggy-bank nav-icon-size"></i> Emoticon</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html"><i class="glyphicon glyphicon glyphicon-cd nav-icon-size"></i> Wallpaper</a>
+              <a class="nav-link" href="contact.html"><i class="glyphicon glyphicon-cd nav-icon-size"></i> Wallpaper</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blog-post.html"><i class="glyphicon glyphicon glyphicon-cd nav-icon-size"></i> Blog</a>
+              <a class="nav-link" href="blog-post.html"><i class="glyphicon glyphicon-globe nav-icon-size"></i> Blog</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Other Pages
+                <i class="glyphicon glyphicon-download nav-icon-size"></i> Other Pages
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-                <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-                <a class="dropdown-item" href="faq.html">FAQ</a>
-                <router-link to="/emoticon/detail">404</router-link>
-                <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+                <router-link to="/emoticon/detail">GitHub</router-link>
               </div>
             </li>
           </ul>
