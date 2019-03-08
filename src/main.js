@@ -2,6 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import nav from './components/common/nav'
+import footer from './components/common/footer'
 import router from './router'
 import axios from 'axios'
 import $ from 'jquery'
@@ -20,6 +22,9 @@ axios.interceptors.request.use((config) => {
   return config;
 });
 
+Vue.component('my-nav', nav);
+Vue.component('my-footer', footer);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -27,3 +32,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
