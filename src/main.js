@@ -18,7 +18,9 @@ var prod = "http://47.107.121.88:8081"
 
 axios.interceptors.request.use((config) => {
   //请求之前重新拼装url
-  config.url = prod + config.url;
+  if (config.url.indexOf("http") < 0) {
+    config.url = prod + config.url;
+  }
   return config;
 });
 
