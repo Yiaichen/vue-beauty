@@ -21,7 +21,7 @@
       <!-- Image Header -->
       <div class="row center-block mb-4">
         <img class="img-thumbnail center" id="scream" src="../../../static/images/emoticon/demo.jpg" alt="QwQ">
-        <canvas id="myCanvas" ref="myCanvas" class="img-thumbnail center">您的浏览器不支持 HTML5 canvas 标签。</canvas>
+        <canvas id="myCanvas" width="300px" height="300px" ref="myCanvas" class="img-thumbnail center">您的浏览器不支持 HTML5 canvas 标签。</canvas>
       </div>
       <div class="row center-block mb-4">
         <label class="center font-weight-normal">原图</label>
@@ -29,7 +29,7 @@
       </div>
 
       <!-- Marketing Icons Section -->
-      <form class="center col-sm-6">
+      <div class="center col-sm-6">
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">font</label>
             <div class="col-sm-10">
@@ -61,11 +61,12 @@
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="description"></textarea>
             </div>
           </div>
-          <button type="submit" @click="showImg" class="btn btn-primary my-1 center">开始制作</button>
-      </form>
+          <button @click="showImg" class="btn btn-primary my-1 center">开始制作</button>
+          <a href="" @click="saveImg" download="test" id="download" class="btn btn-primary text-light">下载</a>
+      </div>
       <!-- /.row -->
 
     </div>
@@ -83,6 +84,7 @@
     data() {
       return {
         myCanvas: null,
+        description: '',
         results: [],
         getUrl: '/api/detail/getDetail'
       }
@@ -102,17 +104,31 @@
         })
       },
       saveImg: function() {
-        var canvasData = $('#target').children('canvas');
-        var a = document.createElement("a");
-        a.href = canvasData[0].toDataURL();;
-        a.download = "drcQrcode";
-        a.click();
+        var c = document.getElementById("myCanvas");
+        var dataURL = c.toDataURL("image/png");
+        var a = document.getElementById("download");
+        a.setAttribute("download","zzz");
+        a.setAttribute("href",dataURL);
       },
       showImg: function () {
-        var c=document.getElementById("myCanvas");
-        var ctx=c.getContext("2d");
-        var img=document.getElementById("scream");
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("scream");
         ctx.drawImage(img,0,0);
+        var text = this.description
+        // 设置字体大小
+        ctx.font = "28px Microsoft YaHei"
+        // 更改字号后，必须重置对齐方式，否则居中麻烦。设置文本的垂直对齐方式
+        ctx.textBaseline = 'middle'
+        ctx.textAlign = 'center'
+        // 距离左边的位置
+        var left = c.width / 2
+        // 距离上边的位置 (图片高-文字距离图片底部的距离)
+        var top = c.height / 6
+        // 文字颜色
+        ctx.fillStyle = "#000"
+        // 文字在画布的位置
+        ctx.fillText(text, left, top)
       }
     }
   }
