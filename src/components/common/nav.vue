@@ -8,25 +8,29 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="about.html"><i class="glyphicon glyphicon-heart nav-icon-size"></i> Head portrait</a>
+            <router-link to="/headPortrait/index" class="nav-link"><i class="myGlyphicon glyphicon-heart nav-icon-size"></i> Head portrait</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="services.html"><i class="glyphicon glyphicon-piggy-bank nav-icon-size"></i> Emoticon</a>
+            <router-link to="/emoticon/index" class="nav-link"><i class="myGlyphicon glyphicon-piggy-bank nav-icon-size"></i> Emoticon</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html"><i class="glyphicon glyphicon-cd nav-icon-size"></i> Wallpaper</a>
+            <router-link to="/wallpaper/index" class="nav-link"><i class="myGlyphicon glyphicon-cd nav-icon-size"></i> Wallpaper</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="blog-post.html"><i class="glyphicon glyphicon-globe nav-icon-size"></i> Blog</a>
+            <a class="nav-link" target="_blank" href="http://vayi.site/"><i class="myGlyphicon glyphicon-globe nav-icon-size"></i> Blog</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="glyphicon glyphicon-download nav-icon-size"></i> Other Pages
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-              <router-link to="/rank/index">GitHub</router-link>
-            </div>
+          <li class="nav-item">
+            <router-link to="/rank/index" class="nav-link"><i class="myGlyphicon glyphicon-apple nav-icon-size"></i> GitHub</router-link>
           </li>
+
+          <!--<li class="nav-item dropdown">-->
+            <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+              <!--<i class="glyphicon glyphicon-download nav-icon-size"></i> Other Pages-->
+            <!--</a>-->
+            <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">-->
+              <!--<router-link to="/rank/index">GitHub</router-link>-->
+            <!--</div>-->
+          <!--</li>-->
         </ul>
       </div>
     </div>
@@ -42,5 +46,16 @@
 <style scoped>
 nav{
   position: relative;
+}
+
+.myGlyphicon {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
 }
 </style>

@@ -20,8 +20,8 @@
 
       <!-- Image Header -->
       <div class="row center-block mb-4">
-        <img class="img-thumbnail center" src="../../../static/images/emoticon/demo.jpg" alt="QwQ">
-        <img class="img-thumbnail center" src="../../../static/images/emoticon/demo.jpg" alt="QwQ">
+        <img class="img-thumbnail center" id="scream" src="../../../static/images/emoticon/demo.jpg" alt="QwQ">
+        <canvas id="myCanvas" ref="myCanvas" class="img-thumbnail center">您的浏览器不支持 HTML5 canvas 标签。</canvas>
       </div>
       <div class="row center-block mb-4">
         <label class="center font-weight-normal">原图</label>
@@ -64,7 +64,7 @@
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary my-1 center">开始制作</button>
+          <button type="submit" @click="showImg" class="btn btn-primary my-1 center">开始制作</button>
       </form>
       <!-- /.row -->
 
@@ -77,17 +77,19 @@
   </div>
 </template>
 
-<script>
+<script defer="defer">
   export default {
     name: "detail",
     data() {
       return {
+        myCanvas: null,
         results: [],
         getUrl: '/api/detail/getDetail'
       }
     },
     created: function () {
       // this.getImg()              //定义方法
+      // this.showImg()
     },
     methods: {
       getImg: function () {
@@ -98,6 +100,19 @@
           // 错误回调
           alert("数据返回失败")
         })
+      },
+      saveImg: function() {
+        var canvasData = $('#target').children('canvas');
+        var a = document.createElement("a");
+        a.href = canvasData[0].toDataURL();;
+        a.download = "drcQrcode";
+        a.click();
+      },
+      showImg: function () {
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        var img=document.getElementById("scream");
+        ctx.drawImage(img,0,0);
       }
     }
   }

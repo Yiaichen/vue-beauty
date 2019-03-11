@@ -19,17 +19,48 @@
       </ol>
 
       <!-- Image Header -->
-      <img class="img-fluid rounded mb-4" src="../../../static/images/banner/03Y.jpg" alt="miao~">
+      <img class="img-fluid rounded mb-4" src="../../../static/images/rank/github.jpg" alt="miao~">
 
       <!-- Marketing Icons Section -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">hot</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">hot</a>
+            <a class="dropdown-item" href="#">new</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">time</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">day</a>
+            <a class="dropdown-item" href="#">week</a>
+            <a class="dropdown-item" href="#">month</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">language</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Java</a>
+            <a class="dropdown-item" href="#">C</a>
+            <a class="dropdown-item" href="#">C#</a>
+          </div>
+        </li>
+      </ul>
+      <br/>
       <div class="row">
         <div class="col-lg-4 mb-4" v-for="result in results">
           <div class="card h-100">
-            <h4 class="card-header myRow"><div class="headImgD"><img v-bind:src="result.owner.avatar_url" alt="git me" class="img-thumbnail"></div>&nbsp;{{result.name}}</h4>
+            <h4 class="card-header myRow">
+              <div class="headImgD"><img v-bind:src="result.owner.avatar_url" alt="git me" class="img-thumbnail"></div>
+              <label class="myLabel">&nbsp;{{result.name}}</label></h4>
             <div class="card-body">
               <p class="card-text">{{result.description}}</p>
             </div>
-            <div class="card-footer">
+            <div class="card-footer myRow">
+              <span class="myNavLink"><i class="myGlyphicon glyphicon-star-empty nav-icon-size"></i>&nbsp;{{result.watchers}}</span>
+              <span class="myNavLink"><i class="myGlyphicon glyphicon-random nav-icon-size"></i>&nbsp;&nbsp;{{result.forks}}</span>
+              <span class="myNavLink"><i class="myGlyphicon glyphicon-pencil nav-icon-size"></i>&nbsp;{{result.language}}</span>
               <a v-bind:href="result.html_url" target="_blank" class="btn btn-primary text-light">More</a>
             </div>
           </div>
@@ -63,7 +94,7 @@
         this.axios.get(this.getUrl).then(res => {
           // 成功回调
           this.results = res.data.items;
-        }, res => {
+      }, res => {
           // 错误回调
           alert("数据返回失败")
         })
@@ -91,5 +122,29 @@
   .headImgD {
     height: 2rem;
     width: 2rem;
+  }
+
+  .myNavLink {
+    display: block;
+    padding: 0.5rem 0.65rem;
+  }
+
+  .myGlyphicon {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .myLabel {
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 0px;
   }
 </style>
