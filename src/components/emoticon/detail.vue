@@ -19,8 +19,8 @@
       </ol>
 
       <!-- Image Header -->
-      <div class="row center-block mb-4">
-        <img class="img-thumbnail center" id="scream" src="../../../static/images/emoticon/demo.jpg" alt="QwQ">
+      <div class="row center-block mb-4" style="height: 300px;">
+        <img class="img-thumbnail center" width="300px" height="300px" id="scream" v-bind:src="orginImg" alt="QwQ">
         <canvas id="myCanvas" width="300px" height="300px" ref="myCanvas" class="img-thumbnail center">您的浏览器不支持 HTML5 canvas 标签。</canvas>
       </div>
       <div class="row center-block mb-4">
@@ -64,8 +64,19 @@
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="description"></textarea>
             </div>
           </div>
-          <button @click="showImg" class="btn btn-primary my-1 center">开始制作</button>
-          <a href="" @click="saveImg" download="test" id="download" class="btn btn-primary text-light">下载</a>
+        <div class="row">
+          <div class="input-group mb-3 col-sm-8" style="margin-top: 4px">
+            <div class="input-group-prepend">
+              <span class="input-group-text">自定义表情</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" id="file" class="custom-file-input" @change="preview($event)">
+              <label class="custom-file-label">Choose file</label>
+            </div>
+          </div>
+        <div class="col-sm-4"><button @click="showImg" class="btn btn-primary my-1 center">开始制作</button>
+          <a href="" @click="saveImg" download="test" id="download" class="btn btn-primary text-light">下载</a></div>
+        </div>
       </div>
       <!-- /.row -->
 
@@ -84,6 +95,7 @@
     data() {
       return {
         myCanvas: null,
+        orginImg: this.$route.query.imgUrl,
         description: '',
         results: [],
         getUrl: '/api/detail/getDetail'
@@ -103,18 +115,34 @@
           alert("数据返回失败")
         })
       },
+      preview(event){
+        var oFReader = new FileReader();
+        var file =event.target.files[0];
+        var self = this;
+        oFReader.readAsDataURL(file);
+        oFReader.onloadend = function(oFRevent){
+          self.orginImg = oFRevent.target.result;
+        };
+        //判断图片格式
+        var fileName=event.target.value;
+        var suffixIndex=fileName.lastIndexOf(".");
+        var suffix=fileName.substring(suffixIndex+1).toUpperCase();
+        if(suffix!="BMP"&&suffix!="JPG"&&suffix!="JPEG"&&suffix!="PNG"&&suffix!="GIF"){
+          alert( "请上传图片（格式BMP、JPG、JPEG、PNG、GIF等）!");
+        }
+      },
       saveImg: function() {
         var c = document.getElementById("myCanvas");
         var dataURL = c.toDataURL("image/png");
         var a = document.getElementById("download");
-        a.setAttribute("download","zzz");
+        a.setAttribute("download","emoticon-");
         a.setAttribute("href",dataURL);
       },
       showImg: function () {
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         var img = document.getElementById("scream");
-        ctx.drawImage(img,0,0);
+        ctx.drawImage(img,0,0,300,300);
         var text = this.description
         // 设置字体大小
         ctx.font = "28px Microsoft YaHei"

@@ -56,7 +56,7 @@
       <div class="row">
         <div class="col-lg-3 col-sm-8 portfolio-item" v-for="result in results" :key="result.id">
           <div class="card h-100">
-            <router-link to="/emoticon/detail"><img class="card-img-top" v-bind:src="result.url" alt=""></router-link>
+            <router-link :to="{path:'/emoticon/detail', query:{ imgUrl: result.url }}"><img class="card-img-top" v-bind:src="result.url" alt=""></router-link>
             <div class="card-body">
               <h4 class="card-title">
                 <router-link to="/emoticon/detail">{{result.title}}</router-link>
