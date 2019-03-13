@@ -7,6 +7,7 @@ import footer from './components/common/footer'
 import router from './router'
 import axios from 'axios'
 import $ from 'jquery'
+import vcolorpicker from 'vcolorpicker'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
@@ -26,6 +27,7 @@ axios.interceptors.request.use((config) => {
 
 Vue.component('my-nav', nav);
 Vue.component('my-footer', footer);
+Vue.use(vcolorpicker)
 
 /* eslint-disable no-new */
 new Vue({
