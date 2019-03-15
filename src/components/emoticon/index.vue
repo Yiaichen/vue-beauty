@@ -12,7 +12,7 @@
           <li class="breadcrumb-item">
             <a href="index.html">Home</a>
           </li>
-          <li class="breadcrumb-item active">头像</li>
+          <li class="breadcrumb-item active">表情包在线制作</li>
         </ol>
 
         <!-- Marketing Icons Section -->
@@ -77,7 +77,7 @@
 
 <script>
   export default {
-    name: "headPortrait",
+    name: "emoticonMain",
     data() {
       return {
         results: [],

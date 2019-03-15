@@ -12,7 +12,7 @@
           <li class="breadcrumb-item">
             <a href="index.html">Home</a>
           </li>
-          <li class="breadcrumb-item active">头像</li>
+          <li class="breadcrumb-item active">壁纸</li>
         </ol>
 
         <!-- Marketing Icons Section -->
@@ -45,10 +45,10 @@
 
         <div class="row">
           <!-- row -->
-          <div class="col-md-3"  v-for="result in results" :key="result.id">
-            <div class="card mb-3 myBox_shadow">
+          <div class="col-md-4"  v-for="result in results" :key="result.id">
+            <div class="card mb-4 myBox_shadow">
               <router-link :to="{path:'/emoticon/detail', query:{ imgUrl: result.url }}">
-                <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 15rem; width: 100%; display: block;"  v-bind:src="result.url" data-holder-rendered="true">
+                <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 15rem; width: 100%; display: block;"  src="../../../static/images/wallpaper/akl.jpg" data-holder-rendered="true">
               </router-link>
               <div class="card-body">
                 <p class="card-text">{{result.title}}</p>
@@ -77,7 +77,7 @@
 
 <script>
   export default {
-    name: "headPortrait",
+    name: "wallPaper",
     data() {
       return {
         results: [],

@@ -2,7 +2,42 @@
   <!-- Navigation -->
   <div id="main">
     <!-- Navigation -->
-    <my-nav></my-nav>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand text-light" href="index.html">Beauty Vayi</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto text-light">
+            <li class="nav-item">
+              <router-link to="/headPortrait/index" class="nav-link text-light"><i class="myGlyphicon glyphicon-heart nav-icon-size"></i> Head portrait</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/emoticon/index" class="nav-link text-light"><i class="myGlyphicon glyphicon-piggy-bank nav-icon-size"></i> Emoticon</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/wallpaper/index" class="nav-link text-light"><i class="myGlyphicon glyphicon-cd nav-icon-size"></i> Wallpaper</router-link>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" target="_blank" href="http://vayi.site/"><i class="myGlyphicon glyphicon-globe nav-icon-size"></i> Blog</a>
+            </li>
+            <li class="nav-item">
+              <router-link to="/rank/index" class="nav-link text-light"><i class="myGlyphicon glyphicon-apple nav-icon-size"></i> GitHub</router-link>
+            </li>
+
+            <!--<li class="nav-item dropdown">-->
+            <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+            <!--<i class="glyphicon glyphicon-download nav-icon-size"></i> Other Pages-->
+            <!--</a>-->
+            <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">-->
+            <!--<router-link to="/rank/index">GitHub</router-link>-->
+            <!--</div>-->
+            <!--</li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <header>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -123,6 +158,9 @@
     created: function () {
       this.getImg()              //定义方法
     },
+    mounted: function () {
+      this.init();
+    },
     methods: {
       getImg: function () {
         this.axios.get(this.getUrl).then(res => {
@@ -132,6 +170,20 @@
           // 错误回调
           alert("数据返回失败")
         })
+      },
+      init: function () {
+        $(window).scroll(function () {
+          var top = 0;
+          var scrollTop = $(window).scrollTop();
+          console.log("top:" + top);
+          console.log("scrollTop:" + scrollTop);
+          if (scrollTop > top) {
+            $("nav").addClass("bg-dark");
+          }else {
+            $("nav").removeClass("bg-dark");
+          }
+        });
+
       }
     }
   }
@@ -140,7 +192,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .carousel-item {
-  height: 94.2vh;
+  height: 100vh;
   min-height: 300px;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
@@ -155,5 +207,16 @@
 
 .nav-icon-size {
   font-size: 0.7rem;
+}
+
+.myGlyphicon {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
 }
 </style>
