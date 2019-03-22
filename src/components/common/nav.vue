@@ -44,9 +44,6 @@
 </script>
 
 <style scoped>
-nav{
-  position: relative;
-}
 
 .myGlyphicon {
   position: relative;

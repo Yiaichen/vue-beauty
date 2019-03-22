@@ -53,15 +53,14 @@
           <div class="card h-100">
             <h4 class="card-header myRow">
               <div class="headImgD"><img v-bind:src="result.owner.avatar_url" alt="git me" class="img-thumbnail"></div>
-              <label class="myLabel">&nbsp;{{result.name}}</label></h4>
+              <a v-bind:href="result.html_url" target="_blank"  class="myLabel text-primary">&nbsp;{{result.name}}</a></h4>
             <div class="card-body">
               <p class="card-text">{{result.description}}</p>
             </div>
-            <div class="card-footer myRow">
-              <span class="myNavLink"><i class="myGlyphicon glyphicon-star-empty nav-icon-size"></i>&nbsp;{{result.watchers}}</span>
+            <div class="myCard-footer myRow">
+              <span class="myNavLink"><i class="myGlyphicon glyphicon-star nav-icon-size"></i>&nbsp;{{result.watchers}}</span>
               <span class="myNavLink"><i class="myGlyphicon glyphicon-random nav-icon-size"></i>&nbsp;&nbsp;{{result.forks}}</span>
               <span class="myNavLink"><i class="myGlyphicon glyphicon-pencil nav-icon-size"></i>&nbsp;{{result.language}}</span>
-              <a v-bind:href="result.html_url" target="_blank" class="btn btn-primary text-light">More</a>
             </div>
           </div>
         </div>
@@ -126,7 +125,7 @@
 
   .myNavLink {
     display: block;
-    padding: 0.5rem 0.65rem;
+    padding: 0.5rem 1.2rem;
   }
 
   .myGlyphicon {
@@ -146,5 +145,11 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-bottom: 0px;
+  }
+
+  .myCard-footer {
+    padding: 0rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
   }
 </style>

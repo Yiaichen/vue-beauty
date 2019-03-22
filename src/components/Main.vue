@@ -2,7 +2,7 @@
   <!-- Navigation -->
   <div id="main">
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top">
       <div class="container">
         <a class="navbar-brand text-light" href="index.html">Beauty Vayi</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,15 +47,8 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-          <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('./static/images/banner/04Y.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>YoRHa No. 2 Type B</h3>
-              <p>This is a NieR:Automata.</p>
-            </div>
-          </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('./static/images/banner/07Y.jpg')">
+          <div class="carousel-item active" style="background-image: url('./static/images/banner/07Y.jpg')">
             <div class="carousel-caption d-none d-md-block">
               <h3>Aestheticism Boy</h3>
               <p>This is a Aestheticism Boy.</p>
@@ -66,6 +59,13 @@
             <div class="carousel-caption d-none d-md-block">
               <h3>LINK</h3>
               <p>The Legend of Zelda: Breath of the Wild.</p>
+            </div>
+          </div>
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('./static/images/banner/04Y.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>YoRHa No. 2 Type B</h3>
+              <p>This is a NieR:Automata.</p>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-# vue-beauty
+# [vue-beauty](http://www.localhostes.com)
 
 > A Vue.js project
 
