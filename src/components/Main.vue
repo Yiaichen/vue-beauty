@@ -175,8 +175,6 @@
         $(window).scroll(function () {
           var top = 0;
           var scrollTop = $(window).scrollTop();
-          console.log("top:" + top);
-          console.log("scrollTop:" + scrollTop);
           if (scrollTop > top) {
             $("nav").addClass("bg-dark");
           }else {
@@ -184,7 +182,13 @@
           }
         });
 
+      },
+      destory: function () {
+        $(window).unbind('scroll');
       }
+    },
+    destroyed: function () {
+      this.destory();
     }
   }
 </script>

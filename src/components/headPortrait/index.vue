@@ -1,5 +1,5 @@
 <template>
-  <div id="">
+  <div style="margin-top: 5rem;">
     <!-- Navigation -->
     <my-nav></my-nav>
 
@@ -46,12 +46,12 @@
         <div class="row">
           <!-- row -->
           <div class="col-md-3"  v-for="result in results" :key="result.id">
-            <div class="card mb-3 myBox_shadow">
+            <div class="card mb-3 myBox_shadow text-center">
               <router-link :to="{path:'/emoticon/detail', query:{ imgUrl: result.url }}">
-                <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 15rem; width: 100%; display: block;"  v-bind:src="result.url" data-holder-rendered="true">
+                <img class="card-img-top rounded-circle img-thumbnail mx-auto" alt="Thumbnail [100%x225]" style="height: 12rem; width: 12rem; display: block; margin-top: 1.6rem;"  v-bind:src="result.url" data-holder-rendered="true">
               </router-link>
               <div class="card-body">
-                <p class="card-text">{{result.title}}</p>
+                <h4 class="card-text" style="margin-bottom: 1.5rem;">{{result.title}}</h4>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary"><i class="myGlyphicon glyphicon glyphicon-thumbs-up nav-icon-size"></i> 赞</button>

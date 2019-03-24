@@ -1,5 +1,5 @@
 <template>
-  <div id="">
+  <div style="margin-top: 5rem;">
     <!-- Navigation -->
     <my-nav></my-nav>
 
