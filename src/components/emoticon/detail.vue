@@ -33,13 +33,26 @@
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">font</label>
             <div class="col-sm-10">
-              <select class="form-control col-sm-4 custom-select">
-                <option selected>微软雅黑</option>
-                <option>宋体</option>
+              <select class="form-control col-sm-4 custom-select" v-model="fontFamily" v-on:change="showImg">
+                <option selected>黑体</option>
+                <option>仿宋</option>
+                <option>新宋体</option>
+                <option>新细明体</option>
+                <option>楷体</option>
+                <option>微软雅黑</option>
+                <option>华文彩云</option>
+                <option>幼圆</option>
+                <option>隶书</option>
               </select>
-              <select class="form-control col-sm-3 custom-select">
-                <option selected>14px</option>
-                <option>13px</option>
+              <select class="form-control col-sm-3 custom-select" v-model="fontSize" v-on:change="showImg">
+                <option>14px</option>
+                <option>16px</option>
+                <option>18px</option>
+                <option>20px</option>
+                <option>22px</option>
+                <option>24px</option>
+                <option>26px</option>
+                <option>28px</option>
               </select>
               <div class="form-control col-sm-1 custom-select"><colorPicker v-model="color" v-on:change="showImg" />
               </div>
@@ -71,7 +84,7 @@
       <br />
       <div class="card text-center">
         <div class="card-header">
-          其他表情推荐
+          相关表情推荐
         </div>
         <div class="card-body">
           <img class="img-thumbnail col-sm-2" src="../../../static/images/01.jpg" alt="QwQ">
@@ -102,8 +115,10 @@
         myCanvas: null,
         onload: false,
         color: '#000000',
+        fontFamily: '微软雅黑',
+        fontSize: '24px',
         orginImg: this.$route.query.imgUrl,
-        description: '',
+        description: '表情包的文字~~',
         results: [],
         getUrl: '/api/detail/getDetail'
       }
@@ -152,16 +167,19 @@
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         var img = document.getElementById("scream");
+        var _this = this;
 
         function drag(x,y){
           //路径正确，鼠标移动事件
+          var text = _this.description;
           c.onmousemove = function(ev){
             var e = ev||event;
             var ax = e.clientX - c.offsetLeft;
             var ay = e.clientY - c.offsetTop;
-            //鼠标移动每一帧都清楚画布内容，然后重新画圆
+            //鼠标移动每一帧都清楚画布内容，然后重新画
             ctx.clearRect(0,0,c.width,c.height);
             ctx.drawImage(img,0,0,300,300);
+            ctx.font = _this.fontSize+' '+ _this.fontFamily;
             ctx.fillText(text, ax, ay)
           };
           //鼠标移开事件
@@ -171,11 +189,12 @@
           };
         }
 
-        if (this.onload) {
+        function func2(val) {
+          //在此处即可同时使用websocket的数据和data数据，method函数
           ctx.drawImage(img,0,0,300,300);
-          var text = this.description == undefined ? '' : this.description
+          var text = val.description == undefined ? '' : val.description;
           // 设置字体大小
-          ctx.font = "28px Microsoft YaHei";
+          ctx.font = _this.fontSize+' '+ _this.fontFamily;
           // 更改字号后，必须重置对齐方式，否则居中麻烦。设置文本的垂直对齐方式
           ctx.textBaseline = 'middle';
           ctx.textAlign = 'center';
@@ -184,28 +203,17 @@
           // 距离上边的位置 (图片高-文字距离图片底部的距离)
           var top = c.height / 6;
           // 文字颜色
-          ctx.fillStyle = this.color;
+          ctx.fillStyle = val.color;
           // 文字在画布的位置
           ctx.fillText(text, left, top)
+        }
+
+
+        if (this.onload) {
+          func2(this);
         } else {
           img.onload = function () {
-            ctx.drawImage(img,0,0,300,300);
-            var text = this.description == undefined ? '' : this.description;
-            // 设置字体大小
-            ctx.font = "28px Microsoft YaHei";
-            // 更改字号后，必须重置对齐方式，否则居中麻烦。设置文本的垂直对齐方式
-            ctx.textBaseline = 'middle';
-            ctx.textAlign = 'center';
-            // 距离左边的位置
-            var left = c.width / 2;
-            // 距离上边的位置 (图片高-文字距离图片底部的距离)
-            var top = c.height / 6;
-            // 文字颜色
-            ctx.fillStyle = this.color;
-            // 文字在画布的位置
-            ctx.fillText(text, left, top);
-            //鼠标按下，将鼠标按下坐标保存在x,y中
-            createBlock(50,50);
+            func2(_this);
           };
           this.onload = true
         }
@@ -216,6 +224,8 @@
           var y = e.clientY - c.offsetTop;
           drag(x,y);
         };
+
+
 
       }
     }
