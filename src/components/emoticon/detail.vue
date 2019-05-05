@@ -20,7 +20,7 @@
 
       <!-- Image Header -->
       <div class="row center-block mb-4" style="height: 300px;">
-        <img class="img-thumbnail center" width="300px" height="300px" id="scream" v-bind:src="orginImg" alt="QwQ">
+        <img class="img-thumbnail center" width="300px" height="300px" style="height: 300px" id="scream" v-bind:src="orginImg" alt="QwQ">
         <canvas id="myCanvas" width="300px" height="300px" ref="myCanvas" class="img-thumbnail center">您的浏览器不支持 HTML5 canvas 标签。</canvas>
       </div>
       <div class="row center-block mb-4">
